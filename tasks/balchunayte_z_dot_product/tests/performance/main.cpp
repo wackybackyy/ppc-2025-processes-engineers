@@ -35,8 +35,9 @@ class DotProductRunPerfTestProcesses : public ppc::util::BaseRunPerfTests<InType
 
     const double diff = std::fabs(output_data - expected_);
     const double scale = std::fabs(expected_);
+    const double threshold = abs_eps + (rel_eps * scale);
 
-    return diff <= abs_eps + rel_eps * scale;
+    return diff <= threshold;
   }
 
   InType GetTestInputData() final {
