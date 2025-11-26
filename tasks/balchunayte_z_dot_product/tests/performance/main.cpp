@@ -13,7 +13,7 @@ namespace balchunayte_z_dot_product {
 class DotProductRunPerfTestProcesses : public ppc::util::BaseRunPerfTests<InType, OutType> {
  public:
   void SetUp() override {
-    constexpr int kSize = 100000;
+    constexpr int kSize = 5000000;
 
     input_data_.a.resize(kSize);
     input_data_.b.resize(kSize);
@@ -30,8 +30,13 @@ class DotProductRunPerfTestProcesses : public ppc::util::BaseRunPerfTests<InType
   }
 
   bool CheckTestOutputData(OutType &output_data) override {
-    const double eps = 1e-6;
-    return std::fabs(output_data - expected_) < eps;
+    const double abs_eps = 1e-6;
+    const double rel_eps = 1e-12;
+
+    const double diff = std::fabs(output_data - expected_);
+    const double scale = std::fabs(expected_);
+
+    return diff <= abs_eps + rel_eps * scale;
   }
 
   InType GetTestInputData() final {
