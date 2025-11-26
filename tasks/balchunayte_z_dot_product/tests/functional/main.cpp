@@ -5,6 +5,8 @@
 #include <cmath>
 #include <tuple>
 #include <vector>
+#include <string>
+#include <cstddef>
 
 #include "balchunayte_z_dot_product/common/include/common.hpp"
 #include "balchunayte_z_dot_product/mpi/include/ops_mpi.hpp"
