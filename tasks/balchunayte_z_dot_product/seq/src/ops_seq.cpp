@@ -1,6 +1,6 @@
 #include "balchunayte_z_dot_product/seq/include/ops_seq.hpp"
 
-#include "balchunayte_z_dot_product/common/include/common.hpp"
+#include <cstddef>
 
 namespace balchunayte_z_dot_product {
 

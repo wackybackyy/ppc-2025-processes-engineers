@@ -4,6 +4,8 @@
 
 #include <vector>
 
+#include "balchunayte_z_dot_product/common/include/common.hpp"
+
 namespace balchunayte_z_dot_product {
 
 BalchunayteZDotProductMPI::BalchunayteZDotProductMPI(const InType &in) {
