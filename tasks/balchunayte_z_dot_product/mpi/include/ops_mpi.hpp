@@ -13,7 +13,11 @@ class BalchunayteZDotProductMPI : public BaseTask {
     return ppc::task::TypeOfTask::kMPI;
   }
 
-  explicit BalchunayteZDotProductMPI(const InType &in);
+  explicit BalchunayteZDotProductMPI(const InType &in) {
+    SetTypeOfTask(GetStaticTypeOfTask());
+    GetInput() = in;
+    GetOutput() = 0.0;
+  }
 
  private:
   bool ValidationImpl() override;

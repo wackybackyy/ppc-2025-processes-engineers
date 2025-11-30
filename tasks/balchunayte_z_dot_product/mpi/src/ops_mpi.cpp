@@ -4,15 +4,7 @@
 
 #include <vector>
 
-#include "balchunayte_z_dot_product/common/include/common.hpp"
-
 namespace balchunayte_z_dot_product {
-
-BalchunayteZDotProductMPI::BalchunayteZDotProductMPI(const InType &in) {
-  SetTypeOfTask(GetStaticTypeOfTask());
-  GetInput() = in;
-  GetOutput() = 0.0;
-}
 
 bool BalchunayteZDotProductMPI::ValidationImpl() {
   MPI_Comm_rank(MPI_COMM_WORLD, &world_rank_);
