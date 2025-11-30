@@ -2,6 +2,8 @@
 
 #include <mpi.h>
 
+#include <vector>
+
 namespace balchunayte_z_dot_product {
 
 BalchunayteZDotProductMPI::BalchunayteZDotProductMPI(const InType &in) {
