@@ -53,7 +53,6 @@ TEST_P(DotProductRunPerfTestProcesses, RunPerfModes) {
   ExecuteTest(GetParam());
 }
 
-// MPI + SEQ задачи для всех режимов запуска
 const auto kAllPerfTasks = ppc::util::MakeAllPerfTasks<InType, BalchunayteZDotProductMPI, BalchunayteZDotProductSEQ>(
     PPC_SETTINGS_balchunayte_z_dot_product);
 

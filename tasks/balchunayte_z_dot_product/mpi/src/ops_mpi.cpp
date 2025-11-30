@@ -2,11 +2,9 @@
 
 #include <mpi.h>
 
-#include <vector>
-
 namespace balchunayte_z_dot_product {
 
-BalchunayteZDotProductMPI::BalchunayteZDotProductMPI(const InType &in) {  // NOLINT(misc-include-cleaner)
+BalchunayteZDotProductMPI::BalchunayteZDotProductMPI(const InType &in) {
   SetTypeOfTask(GetStaticTypeOfTask());
   GetInput() = in;
   GetOutput() = 0.0;

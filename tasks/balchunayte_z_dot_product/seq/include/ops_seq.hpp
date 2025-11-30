@@ -14,10 +14,10 @@ class BalchunayteZDotProductSEQ : public BaseTask {
   explicit BalchunayteZDotProductSEQ(const InType &in);
 
  private:
-  bool ValidationImpl() override;      // NOLINT(readability-convert-member-functions-to-static)
-  bool PreProcessingImpl() override;   // NOLINT(readability-convert-member-functions-to-static)
-  bool RunImpl() override;             // NOLINT(readability-convert-member-functions-to-static)
-  bool PostProcessingImpl() override;  // NOLINT(readability-convert-member-functions-to-static)
+  bool ValidationImpl() override;
+  bool PreProcessingImpl() override;
+  bool RunImpl() override;
+  bool PostProcessingImpl() override;
 };
 
 }  // namespace balchunayte_z_dot_product
