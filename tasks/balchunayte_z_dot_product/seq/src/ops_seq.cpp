@@ -2,6 +2,8 @@
 
 #include <cstddef>
 
+#include "balchunayte_z_dot_product/common/include/common.hpp"
+
 namespace balchunayte_z_dot_product {
 
 BalchunayteZDotProductSEQ::BalchunayteZDotProductSEQ(const InType &in) {
