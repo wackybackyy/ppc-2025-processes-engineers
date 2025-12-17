@@ -1,6 +1,7 @@
 #pragma once
 
 #include "balchunayte_z_shell_batcher/common/include/common.hpp"
+#include "task/include/task.hpp"
 
 namespace balchunayte_z_shell_batcher {
 

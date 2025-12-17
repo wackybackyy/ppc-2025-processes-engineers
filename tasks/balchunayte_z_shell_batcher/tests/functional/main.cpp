@@ -5,13 +5,13 @@
 #include <cstddef>
 #include <string>
 #include <tuple>
-#include <utility>
 #include <vector>
 
 #include "balchunayte_z_shell_batcher/common/include/common.hpp"
 #include "balchunayte_z_shell_batcher/mpi/include/ops_mpi.hpp"
 #include "balchunayte_z_shell_batcher/seq/include/ops_seq.hpp"
 #include "util/include/func_test_util.hpp"
+#include "util/include/util.hpp"
 
 namespace balchunayte_z_shell_batcher {
 
@@ -27,7 +27,7 @@ class BalchunayteZShellBatcherRunFuncTestsProcesses : public ppc::util::BaseRunF
     input_data_ = std::get<0>(params);
 
     expected_ = input_data_;
-    std::sort(expected_.begin(), expected_.end());
+    std::ranges::sort(expected_);
   }
 
   bool CheckTestOutputData(OutType &output_data) final {
@@ -39,8 +39,8 @@ class BalchunayteZShellBatcherRunFuncTestsProcesses : public ppc::util::BaseRunF
   }
 
  private:
-  InType input_data_{};
-  OutType expected_{};
+  InType input_data_;
+  OutType expected_;
 };
 
 namespace {
