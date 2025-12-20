@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 
 #include <cstddef>
-#include <utility>
 
 #include "balchunayte_z_shell_batcher/common/include/common.hpp"
 #include "balchunayte_z_shell_batcher/mpi/include/ops_mpi.hpp"
