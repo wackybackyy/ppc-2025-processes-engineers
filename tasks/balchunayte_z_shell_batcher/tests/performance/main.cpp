@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
-#include <algorithm>
 #include <cstddef>
+#include <utility>
 
 #include "balchunayte_z_shell_batcher/common/include/common.hpp"
 #include "balchunayte_z_shell_batcher/mpi/include/ops_mpi.hpp"
@@ -9,6 +9,26 @@
 #include "util/include/perf_test_util.hpp"
 
 namespace balchunayte_z_shell_batcher {
+
+namespace {
+
+void ShellSort(InType *vec) {
+  auto &a = *vec;
+  const std::size_t n = a.size();
+  for (std::size_t gap = n / 2; gap > 0; gap /= 2) {
+    for (std::size_t i = gap; i < n; ++i) {
+      const int tmp = a[i];
+      std::size_t j = i;
+      while (j >= gap && a[j - gap] > tmp) {
+        a[j] = a[j - gap];
+        j -= gap;
+      }
+      a[j] = tmp;
+    }
+  }
+}
+
+}  // namespace
 
 class ShellBatcherRunPerfTestProcesses : public ppc::util::BaseRunPerfTests<InType, OutType> {
  public:
@@ -23,7 +43,7 @@ class ShellBatcherRunPerfTestProcesses : public ppc::util::BaseRunPerfTests<InTy
     }
 
     expected_ = input_data_;
-    std::ranges::sort(expected_);
+    ShellSort(&expected_);
   }
 
   bool CheckTestOutputData(OutType &output_data) final {
@@ -48,7 +68,6 @@ const auto kAllPerfTasks =
         PPC_SETTINGS_balchunayte_z_shell_batcher);
 
 const auto kGtestValues = ppc::util::TupleToGTestValues(kAllPerfTasks);
-
 const auto kPerfTestName = ShellBatcherRunPerfTestProcesses::CustomPerfTestName;
 
 INSTANTIATE_TEST_SUITE_P(RunModeTests, ShellBatcherRunPerfTestProcesses, kGtestValues, kPerfTestName);
